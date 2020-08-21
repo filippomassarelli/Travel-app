@@ -9,7 +9,7 @@ const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   mode: "development",
-  devtool: "eval-cheap-module-source-map",
+  devtool: "source-map",
   output: {
     libraryTarget: "var",
     library: "Client",
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: "/.js$/",
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"],
+        use: ["babel-loader"],
       },
       {
         test: /\.scss$/,

@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
     <title>Travel Journal</title>
+    <link rel="stylesheet" href="../styles/all.scss">
+
     <script src="https://kit.fontawesome.com/f49ef79a52.js" crossorigin="anonymous"></script>
 
 </head>
@@ -26,7 +28,7 @@
 
     <main>
 
-        <section class="search-section">
+        <section id="search-section">
             <h1 class="hero-quote">Life is a journey. Log it.</h1>
             <form class="trip-details" onsubmit="return Client.handleFind(event)">
                 <input type="text" name="departure" id="departure" class="dark" placeholder="departure city" required>

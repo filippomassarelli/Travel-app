@@ -8,11 +8,12 @@ import { handleFind } from "./js/handleFind";
 import { handleSave } from "./js/handleSave";
 
 // import styles
-import "./styles/searchSection.scss";
-import "./styles/header.scss";
+import "./styles/all.scss";
 
 // import media
 import "./media/travel-homepage.jpg";
+
+window.addEventListener("DOMContentLoaded", init);
 
 // export functions
 export { displayLog, displaySearch, handleFind, handleSave };
