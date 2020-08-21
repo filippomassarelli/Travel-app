@@ -3,3 +3,91 @@
     2. a search form, asking for city and dates
     3. an empty results section where to dynamically display the results 
     4. and a footer -->
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>Travel Journal</title>
+    <script src="https://kit.fontawesome.com/f49ef79a52.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar__menu">
+          <ul id="navbar__list">
+              <li><a href="#trip-form" class="menu__link" id="company-brand-nav"><i class="fas fa-globe-europe"></i></i> Travel Journal</a></li>
+              <li><a href="#trip-log" class="menu__link" id="trip-log-nav">Logged Trips</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="search-section">
+            <h1 class="hero-quote">Life is a journey. Log it.</h1>
+            <form class="trip-details" onsubmit="return Client.handleFind(event)">
+                <input type="text" name="departure" id="departure" class="dark" placeholder="departure city" required>
+                <input type="text" name="destination" id="destination" class="dark" placeholder="destination city" required>
+                <input type="date" name="date" id="date" class="dark">
+                <input type="submit" class="button-cta" value="Find" required>
+            </form>
+        </section>
+
+        <section id="search-results">      
+        </section>
+
+        <!-- <section id="trip_modal" class="modal">
+            <div class="modal-content">
+                <div>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal_info">
+                    <img id="modal_img" src="./images/mountain.jpg">
+                    <p>
+                        <h2>Trip to <span class="city">Paris</span>, <span class="country">France</span></h2>
+                        <b>Departing: </b><span id="date">02/12/2021</span>
+                    </p>
+                    <p>Trip to <span class="city">Paris</span>, <span class="country">France</span> <span id="amount_of_days">is 220  days away</span></p>
+                    <p><b>Weather: </b><span id="high_temp">High: 46</span><span id="low_temp">, Low: -54</span> <span id="weather"></span></p>
+                    <input id="modal_button" type="button" value="Save Trip">
+                </div>
+            </div>
+        </section> -->
+
+
+
+        <section id="trip-log">
+            <div class="radio-toolbar">
+                <input class="radio_input" type="radio" id="futureTrips" name="trip" value="future" checked>
+                <label class="radio_label" for="futureTrips">Future trips</label>
+                <input class="radio_input" type="radio" id="pastTrips" name="trip" value="past">
+                <label class="radio_label" for="pastTrips">Past trips</label>
+            </div>
+
+            <div id="saved-trips">
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>Filippo Massarelli &copy Udacity 2020</p>
+        <div class="social">
+            <a href="https://github.com/filippomassarelli/udacity-fend-project-4"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/smilemeup/"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+    </footer>
+    <!-- <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script> -->
+</body>
+</html>
