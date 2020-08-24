@@ -2,22 +2,21 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
   mode: "production",
   output: {
     libraryTarget: "var",
-    library: "Client",
+    library: "ClientLibrary",
   },
   optimization: {
     minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
+
   module: {
     rules: [
       {
@@ -30,13 +29,13 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jp(e*)g|svg)$/,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
-              limit: 8000, // Convert images < 8kb to base64 strings
-              name: "images/[hash]-[name].[ext]",
+              name: "[name].[ext]",
+              outputPath: "images/",
             },
           },
         ],
@@ -48,33 +47,7 @@ module.exports = {
       template: "./src/client/views/index.html",
       filename: "./index.html",
     }),
-    new FaviconsWebpackPlugin({
-      logo: "./src/client/media/favicon.png",
-      publicPath: "",
-      inject: true,
-      favicons: {
-        icons: {
-          android: false,
-          appleIcon: false,
-          appleStartup: false,
-          coast: false,
-          firefox: false,
-          windows: false,
-          yandex: false,
-          favicons: true,
-        },
-      },
-    }),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
     // new WorkboxPlugin.GenerateSW(),
-    new CleanWebpackPlugin({
-      // Simulate the removal of files
-      dry: false,
-      // Write Logs to Console
-      verbose: true,
-      // Automatically remove all unused webpack assets on rebuild
-      cleanStaleWebpackAssets: true,
-      protectWebpackAssets: false,
-    }),
   ],
 };

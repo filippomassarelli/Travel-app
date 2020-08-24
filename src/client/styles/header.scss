@@ -1,5 +1,16 @@
 header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
   nav {
-    background-color: red($color: #000000);
+    color: magenta;
+    background-color: mediumaquamarine;
+    p {
+      a {
+        color: magenta;
+      }
+    }
   }
 }
