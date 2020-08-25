@@ -12,7 +12,7 @@
     <link rel="icon" href="data:,">
     <title>Travel Journal</title>
     <link rel="stylesheet" href="../styles/all.scss">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f49ef79a52.js" crossorigin="anonymous"></script>
 
 </head>
@@ -27,7 +27,10 @@
     <main>
 
         <section id="search-section">
-            <h1 class="hero-quote">Life is a journey. Log it.</h1>
+            <div class="hero-quote"><h1><span>Life is a journey.</span></h1>
+                <h2><span> Log it.</span></h2>
+            </div>
+
             <form class="trip-details" onsubmit="return Client.handleFind(event)">
                 <input type="text" name="departure" id="departure" class="dark" placeholder="departure city" required>
                 <input type="text" name="destination" id="destination" class="dark" placeholder="destination city" required>
@@ -59,7 +62,7 @@
 
 
 
-        <section id="trip-log">
+        <section id="log-section">
             <div class="radio-toolbar">
                 <input class="radio_input" type="radio" id="futureTrips" name="trip" value="future" checked>
                 <label class="radio_label" for="futureTrips">Future trips</label>
@@ -73,12 +76,11 @@
     </main>
 
     <footer id="footer">
-        <p>Filippo Massarelli &copy Udacity 2020</p>
         <div class="social">
             <a href="https://github.com/filippomassarelli/udacity-fend-project-4"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/smilemeup/"><i class="fab fa-linkedin"></i></a>
         </div>
-
+        <p>Filippo Massarelli &copy Udacity 2020</p>
     </footer>
     <!-- <script>
         // Check that service workers are supported

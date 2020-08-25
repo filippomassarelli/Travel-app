@@ -1,15 +1,15 @@
 header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-
   nav {
-    color: magenta;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     background-color: mediumaquamarine;
+    padding: 0.25rem 1.5rem;
     p {
       a {
-        color: magenta;
+        color: white;
+        text-decoration: none;
       }
     }
   }

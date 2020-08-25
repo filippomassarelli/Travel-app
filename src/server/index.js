@@ -8,9 +8,15 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const fetch = require("node-fetch");
+const fetchWeather = require("./fetchWeather");
+
 // const trips = {};
 // let id = 0;
 // let trip = {};
+
+// Local database
+let logId = 0;
+let tripLog = [];
 
 /* Set up */
 
@@ -31,11 +37,6 @@ app.use(express.static("dist"));
 // setup Cors for cross origin allowance
 app.use(cors());
 
-// -- setup Home route endpoint
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve("dist/index.html"));
-});
-
 // Spin server
 const port = 5005;
 app.listen(process.env.PORT || port, () => {
@@ -43,6 +44,30 @@ app.listen(process.env.PORT || port, () => {
 });
 
 // ======================
+
+// ENDPOINTS
+
+// -- Home route
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve("dist/index.html"));
+});
+
+// -- Find route
+app.post("/find", async (req, res) => {
+  try {
+    const weatherData = await fetchWeather(req.body.destinationCity);
+    // here do Pixabay API too: const pixabayData
+    const trip = { logId, ...weatherData };
+    tripLog.push(trip);
+    logId++;
+    console.log(tripLog);
+    res.status(200).send(trip);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send(e);
+  }
+});
+
 // const fetchAPI = require("./meaningCloud");
 
 // ---- ROUTES
@@ -58,10 +83,4 @@ app.listen(process.env.PORT || port, () => {
 //   } catch (e) {
 //     res.status(400).send(e);
 //   }
-// });
-
-// // spin server
-// const port = 2099;
-// app.listen(process.env.PORT || port, function () {
-//   console.log(`App listening on port ${port}`);
 // });

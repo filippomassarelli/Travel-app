@@ -10,7 +10,7 @@ module.exports = {
   stats: "verbose",
   output: {
     libraryTarget: "var",
-    library: "ClientLibrary",
+    library: "Client",
   },
   module: {
     rules: [

@@ -1,11 +1,45 @@
-#searchSection {
-  background-image: 100% url("../media/travel-homepage.jpg");
+$font-stack: "Roboto Mono", monospace;
+
+#search-section {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../media/travel-homepage.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: magenta;
+  justify-content: center;
+
+  .button-cta {
+    border: none;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    background-color: mediumaquamarine;
+    &:hover {
+      background-color: mediumpurple;
+    }
+  }
+
+  .hero-quote {
+    line-height: 2.5rem;
+    text-align: center;
+
+    h1 {
+      font-family: $font-stack;
+      font-weight: 300;
+      font-size: 5rem;
+    }
+    h2 {
+      font-family: $font-stack;
+      font-weight: 500;
+      font-size: 5rem;
+      span {
+        background-color: mediumaquamarine;
+      }
+    }
+  }
 }
