@@ -6,13 +6,13 @@ function updateUI(data) {
 
   let resultsHTML;
   //   if (!data.error) {
-  const imgSrc = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+  const weatherImgSrc = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   resultsHTML = `
+                  <img src="${data.cityImgSrc}">
                   <div class="card">
                   <h1>${data.city}</h1>
-                  <img src="${imgSrc}">
-                  <p>${data.temp} °C</p>
-                  <p>${data.description}</p>
+                  <img src="${weatherImgSrc}">
+                  <p>${data.temp} °C with ${data.description}</p>
                   </div>`;
   //   } else {
   //     resultsHTML = `

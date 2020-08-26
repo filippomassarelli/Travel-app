@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 
 const fetch = require("node-fetch");
 const fetchWeather = require("./fetchWeather");
+const fetchPixabay = require("./fetchPixabay");
 
 // const trips = {};
 // let id = 0;
@@ -56,8 +57,9 @@ app.get("/", (req, res) => {
 app.post("/find", async (req, res) => {
   try {
     const weatherData = await fetchWeather(req.body.destinationCity);
+    const cityImgSrc = await fetchPixabay(req.body.destinationCity);
     // here do Pixabay API too: const pixabayData
-    const trip = { logId, ...weatherData };
+    const trip = { logId, ...weatherData, cityImgSrc };
     tripLog.push(trip);
     logId++;
     console.log(tripLog);
