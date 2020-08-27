@@ -14,7 +14,7 @@ const handleFind = (event) => {
 
   //Send post request to server and use response to updateUI
   Client.postData("/find", userInput).then((data) => {
-    Client.updateUI(data);
+    Client.displaySearch(data);
   });
 };
 

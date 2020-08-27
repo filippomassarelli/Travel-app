@@ -1,3 +1,5 @@
+//// FUNCTION NOW REDUNDANTANT >> BEEN CHANGED TO displaySearch
+
 function updateUI(data) {
   //Clear UI
   const results = document.getElementById("search-results");
@@ -13,6 +15,7 @@ function updateUI(data) {
                   <h1>${data.city}</h1>
                   <img src="${weatherImgSrc}">
                   <p>${data.temp} °C with ${data.description}</p>
+                  <button type="submit" id="save">Log trip</button>
                   </div>`;
   //   } else {
   //     resultsHTML = `
@@ -26,6 +29,8 @@ function updateUI(data) {
   console.log("updateUI is running");
   console.log(resultsHTML);
   results.insertAdjacentHTML("beforeend", resultsHTML);
+  const saveTrip = document.selectElementByID("save");
+  saveTrip.addEventListener(click, Client.handleSave(data));
 }
 
 export { updateUI };

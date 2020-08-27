@@ -17,7 +17,8 @@ const fetchPixabay = require("./fetchPixabay");
 
 // Local database
 let logId = 0;
-let tripLog = [];
+let searchLog = [];
+let saveLog = [];
 
 /* Set up */
 
@@ -60,14 +61,21 @@ app.post("/find", async (req, res) => {
     const cityImgSrc = await fetchPixabay(req.body.destinationCity);
     // here do Pixabay API too: const pixabayData
     const trip = { logId, ...weatherData, cityImgSrc };
-    tripLog.push(trip);
+    searchLog.push(trip);
     logId++;
-    console.log(tripLog);
+    console.log(searchLog);
     res.status(200).send(trip);
   } catch (e) {
     console.log(e);
     res.status(400).send(e);
   }
+});
+
+app.post("/save", (data) => {
+  console.log("/save endpoint hit with post request from handleSave.js");
+
+  saveLog.push(data);
+  return saveLog;
 });
 
 // const fetchAPI = require("./meaningCloud");
