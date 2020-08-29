@@ -23,9 +23,20 @@ function displayLog(data) {
                         <h1>${trip.city}</h1>
                         <img src="${weatherImgSrc}">
                         <p>${trip.temp} °C with ${trip.description}</p>
-                        <button id="delete">Delete Trip</button>
                         </div>`;
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete Trip";
+    // value of button is trip.logId
+    const btnValue = { value: trip.logId };
+    deleteButton.setAttribute("value", btnValue);
+
+    deleteButton.addEventListener("click", () => {
+      console.log(btnValue);
+      Client.postData("/delete", btnValue).then((newLog) => displayLog(newLog));
+    });
+
     card.insertAdjacentHTML("beforeend", resultsHTML);
+    card.appendChild(deleteButton);
     loggedResults.appendChild(card);
   });
 }

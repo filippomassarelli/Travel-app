@@ -76,3 +76,15 @@ app.post("/save", (req, res) => {
 
   res.status(200).send(saveLog);
 });
+
+app.post("/delete", (req, res) => {
+  console.log(`trip to delete from log has id ${req.body.value}`);
+  // find object to remove
+  const toRemove = saveLog.find((element) => element.logId === req.body.value);
+
+  // splice using index
+  saveLog.splice(saveLog.indexOf(toRemove), 1);
+  console.log(saveLog);
+
+  res.status(200).send(saveLog);
+});
