@@ -4,6 +4,10 @@ function handleSave(savedData) {
   Client.postData("/save", savedData).then((saveLog) => {
     Client.displayLog(saveLog);
   });
+  //Clear UI
+  const results = document.getElementById("search-results");
+  results.innerHTML = "";
+  results.style.display = "block";
 }
 
 export { handleSave };
