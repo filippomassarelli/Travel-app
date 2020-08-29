@@ -7,13 +7,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const fetch = require("node-fetch");
 const fetchWeather = require("./fetchWeather");
 const fetchPixabay = require("./fetchPixabay");
-
-// const trips = {};
-// let id = 0;
-// let trip = {};
 
 // Local database
 let logId = 0;
@@ -59,7 +54,7 @@ app.post("/find", async (req, res) => {
   try {
     const weatherData = await fetchWeather(req.body.destinationCity);
     const cityImgSrc = await fetchPixabay(req.body.destinationCity);
-    // here do Pixabay API too: const pixabayData
+
     const trip = { logId, ...weatherData, cityImgSrc };
     searchLog.push(trip);
     logId++;
@@ -71,26 +66,13 @@ app.post("/find", async (req, res) => {
   }
 });
 
-app.post("/save", (data) => {
-  console.log("/save endpoint hit with post request from handleSave.js");
+app.post("/save", (req, res) => {
+  console.log(
+    "/save endpoint hit with post request from handleSave.js with req.body:"
+  );
+  console.log(req.body);
 
-  saveLog.push(data);
-  return saveLog;
+  saveLog.push(req.body);
+
+  res.status(200).send(saveLog);
 });
-
-// const fetchAPI = require("./meaningCloud");
-
-// ---- ROUTES
-
-// -- setup Submit route endpoint
-// app.post("/submit", async (req, res) => {
-//   const userInput = req.body;
-
-//   try {
-//     const apiData = await fetchAPI(userInput);
-//     sentimentAnalysis = JSON.stringify(apiData);
-//     res.status(200).send(sentimentAnalysis);
-//   } catch (e) {
-//     res.status(400).send(e);
-//   }
-// });

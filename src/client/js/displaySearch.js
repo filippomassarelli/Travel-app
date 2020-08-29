@@ -18,7 +18,6 @@ function displaySearch(data) {
                     <img src="${weatherImgSrc}">
                     <p>${data.temp} °C with ${data.description}</p>
                     <button id="save">Log trip</button>
-                    // <button onclick="Client.handleSave(data)" id="save">Log trip</button>
                     </div>`;
   //   } else {
   //     resultsHTML = `
@@ -32,8 +31,9 @@ function displaySearch(data) {
   console.log("updateUI is running");
   console.log(resultsHTML);
   results.insertAdjacentHTML("beforeend", resultsHTML);
-  //   const saveTrip = document.getElementByID("save");
-  //   saveTrip.addEventListener(click, Client.handleSave(data));
+  document
+    .getElementById("save")
+    .addEventListener("click", () => Client.handleSave(data));
 
   //   const handleClick = Client.handleSave(data);
 }

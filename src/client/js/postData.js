@@ -1,4 +1,5 @@
 const postData = async (passedUrl, passedData) => {
+  console.log("postData is running");
   const request = await fetch(passedUrl, {
     method: "POST",
     credentials: "same-origin",

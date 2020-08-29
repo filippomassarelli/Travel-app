@@ -4,7 +4,7 @@
 // to be used in handleSave
 
 function displayLog(data) {
-  console.log("displayLog running");
+  console.log("displayLog running, data received from server is");
   console.log(data);
 }
 
