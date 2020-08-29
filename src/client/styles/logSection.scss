@@ -6,4 +6,17 @@
   .radio-toolbar {
     background-color: mediumpurple;
   }
+
+  #saved-trips {
+    display: flex;
+    flex-direction: column;
+    .log-card {
+      background-color: silver;
+      display: flex;
+      flex-direction: row;
+      img {
+        width: 50%;
+      }
+    }
+  }
 }
