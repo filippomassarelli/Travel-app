@@ -8,6 +8,8 @@ function displaySearch(data) {
   results.innerHTML = "";
   results.style.display = "block";
 
+  const timeText = Client.timeDiff(data.departureDate);
+
   let resultsHTML;
   //   if (!data.error) {
   const weatherImgSrc = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
@@ -15,6 +17,7 @@ function displaySearch(data) {
                     <img src="${data.cityImgSrc}">
                     <div class="card">
                     <h1>${data.city}</h1>
+                    <h3>${timeText}</h3>
                     <img src="${weatherImgSrc}">
                     <p>${data.temp} °C with ${data.description}</p>
                     <button id="save">Log trip</button>

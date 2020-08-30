@@ -7,10 +7,9 @@ const handleFind = (event) => {
   event.preventDefault();
 
   //identify user input
-  const departureCity = document.getElementById("departure").value;
   const destinationCity = document.getElementById("destination").value;
   const departureDate = document.getElementById("date").value;
-  const userInput = { departureCity, destinationCity, departureDate };
+  const userInput = { destinationCity, departureDate };
 
   //Send post request to server and use response to updateUI
   Client.postData("/find", userInput).then((data) => {

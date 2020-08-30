@@ -54,8 +54,9 @@ app.post("/find", async (req, res) => {
   try {
     const weatherData = await fetchWeather(req.body.destinationCity);
     const cityImgSrc = await fetchPixabay(req.body.destinationCity);
+    const departureDate = req.body.departureDate;
 
-    const trip = { logId, ...weatherData, cityImgSrc };
+    const trip = { logId, ...weatherData, cityImgSrc, departureDate };
     searchLog.push(trip);
     logId++;
     console.log(searchLog);

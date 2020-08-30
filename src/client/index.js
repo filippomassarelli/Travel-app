@@ -4,6 +4,7 @@ import { handleFind } from "./js/handleFind";
 import { handleSave } from "./js/handleSave";
 import { postData } from "./js/postData";
 import { updateUI } from "./js/updateUI";
+import { timeDiff } from "./js/timeDiff";
 
 import "./styles/all.scss";
 
@@ -18,6 +19,7 @@ export {
   handleSave,
   postData,
   updateUI,
+  timeDiff,
 };
 
 // Here we import all styles, media and client side Js functions, then export

@@ -16,11 +16,14 @@ function displayLog(data) {
     const card = document.createElement("div");
     card.classList.add("log-card");
 
+    const timeText = Client.timeDiff(trip.date);
+
     const weatherImgSrc = `http://openweathermap.org/img/wn/${trip.icon}@2x.png`;
     const resultsHTML = `
                         <img src="${trip.cityImgSrc}">
                         <div class="card">
                         <h1>${trip.city}</h1>
+                        <h3>${timeText}</h3>
                         <img src="${weatherImgSrc}">
                         <p>${trip.temp} °C with ${trip.description}</p>
                         </div>`;
