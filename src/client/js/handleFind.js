@@ -15,6 +15,11 @@ const handleFind = (event) => {
   Client.postData("/find", userInput).then((data) => {
     Client.displaySearch(data);
   });
+
+  //Scroll to search result
+  document.getElementById("search-results").scrollIntoView({
+    behavior: "smooth",
+  });
 };
 
 export { handleFind };
