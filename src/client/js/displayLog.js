@@ -16,22 +16,20 @@ function displayLog(data) {
     const card = document.createElement("div");
     card.classList.add("log-card");
 
-    const timeText = Client.timeDiff(trip.date);
+    const timeText = Client.timeDiff(trip.departureDate);
 
     const weatherImgSrc = `http://openweathermap.org/img/wn/${trip.icon}@2x.png`;
     const resultsHTML = `
-                        <img src="${trip.cityImgSrc}">
-                        <div class="card">
-                        <h1>${trip.city}</h1>
-                        <h3>${timeText}</h3>
-                        <img src="${weatherImgSrc}">
-                        <p>${trip.temp} °C with ${trip.description}</p>
-                        </div>`;
+                        <img src=${trip.cityImgSrc}/>
+                        <h3>${trip.city} - ${timeText}</h3>
+                        <p>${trip.temp}°C with ${trip.description}</p>
+                        `;
     const deleteButton = document.createElement("button");
-    deleteButton.innerHTML = "Delete Trip";
+    deleteButton.innerHTML = "delete";
     // value of button is trip.logId
     const btnValue = { value: trip.logId };
     deleteButton.setAttribute("value", btnValue);
+    deleteButton.classList.add("cta");
 
     deleteButton.addEventListener("click", () => {
       console.log(btnValue);

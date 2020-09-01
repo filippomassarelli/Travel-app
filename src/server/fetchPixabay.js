@@ -14,12 +14,12 @@ const fetchPixabay = async (city) => {
     const res = await response.json();
 
     if (res.totalHits < 1) {
-      return "https://cdn.pixabay.com/photo/2016/01/19/15/48/luggage-1149289_1280.jpg";
+      return "https://cdn.pixabay.com/photo/2017/06/05/11/01/airport-2373727_1280.jpg";
     } else {
       return res.hits[0].webformatURL;
     }
   } catch (error) {
-    return "https://cdn.pixabay.com/photo/2016/01/19/15/48/luggage-1149289_1280.jpg";
+    return "https://cdn.pixabay.com/photo/2017/06/05/11/01/airport-2373727_1280.jpg";
   }
 };
 

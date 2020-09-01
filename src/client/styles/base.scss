@@ -1,5 +1,20 @@
+$font-stack: "Roboto Mono", monospace;
+
 head {
   height: 10vh;
+}
+
+body {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("../media/travel-homepage.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: $font-stack;
 }
 
 #search-section {
@@ -10,6 +25,14 @@ head {
   height: 80vh;
 }
 
-footer {
-  height: 10vh;
+.cta {
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: mediumaquamarine;
+  &:hover {
+    background-color: mediumpurple;
+  }
 }

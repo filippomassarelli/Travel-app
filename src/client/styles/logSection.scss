@@ -8,14 +8,24 @@
   }
 
   #saved-trips {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
     .log-card {
-      background-color: silver;
-      display: flex;
-      flex-direction: row;
+      background-color: whitesmoke;
+      max-width: 50vw;
+      min-height: 30vw;
+      flex: 1 1 30vw;
+      text-align: center;
+      margin: 1rem;
+      padding: 1rem;
+      transition: transform 0.2s;
+
       img {
-        width: 50%;
+        max-width: inherit;
       }
     }
   }
