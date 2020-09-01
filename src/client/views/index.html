@@ -2,7 +2,8 @@
     1. a navbar, 
     2. a search form, asking for city and dates
     3. an empty results section where to dynamically display the results 
-    4. and a footer -->
+    4. an empty log section where to dynamically display saved trips
+    5. and a footer -->
 
     <!DOCTYPE html>
 <html lang="en">
@@ -42,13 +43,6 @@
         </section>
 
         <section id="log-section">
-            <div class="radio-toolbar">
-                <input class="radio_input" type="radio" id="futureTrips" name="trip" value="future" checked>
-                <label class="radio_label" for="futureTrips">Future trips</label>
-                <input class="radio_input" type="radio" id="pastTrips" name="trip" value="past">
-                <label class="radio_label" for="pastTrips">Past trips</label>
-            </div>
-
             <div id="saved-trips">
             </div>
         </section>
