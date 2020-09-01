@@ -20,7 +20,7 @@ function displaySearch(data) {
   <h3>${timeText}</h3>
   <img src="${weatherImgSrc}">
   <p>${data.temp} °C with ${data.description}</p>
-  <button id="save" class="cta">save</button>
+  <button id="save" class="cta" href="#log-section">save</button>
   </div>
   </div>`;
   //   } else {
