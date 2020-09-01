@@ -18,7 +18,6 @@ function displayLog(data) {
 
     const timeText = Client.timeDiff(trip.departureDate);
 
-    const weatherImgSrc = `http://openweathermap.org/img/wn/${trip.icon}@2x.png`;
     const resultsHTML = `
                         <img src=${trip.cityImgSrc}/>
                         <h3>${trip.city} - ${timeText}</h3>

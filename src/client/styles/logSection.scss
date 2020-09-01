@@ -16,16 +16,15 @@
 
     .log-card {
       background-color: whitesmoke;
-      max-width: 50vw;
-      min-height: 30vw;
-      flex: 1 1 30vw;
+      max-width: 25rem;
+      flex: 1 1 15rem;
       text-align: center;
       margin: 1rem;
       padding: 1rem;
       transition: transform 0.2s;
 
       img {
-        max-width: inherit;
+        max-width: 100%;
       }
     }
   }
