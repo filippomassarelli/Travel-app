@@ -12,7 +12,7 @@ const fetchWeather = async (city) => {
   try {
     const data = {
       city: res.data.name,
-      temp: res.data.main.temp,
+      temp: Math.round(res.data.main.temp),
       icon: res.data.weather[0].icon,
       description: res.data.weather[0].description,
     };

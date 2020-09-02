@@ -13,13 +13,14 @@ function displaySearch(data) {
   let resultsHTML;
   //   if (!data.error) {
   const weatherImgSrc = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
-  resultsHTML = `<div class="search-card">                  
+  resultsHTML = `<div class="search-card">                 
   <img src="${data.cityImgSrc}">
   <div class="search-detail">
-  <h1>${data.city}</h1>
-  <h3>${timeText}</h3>
   <img src="${weatherImgSrc}">
-  <p>${data.temp} °C with ${data.description}</p>
+  <div> 
+  <h1>${data.city}</h1>
+  <p>${data.temp}°C - ${timeText}</p>
+  </div>
   <button id="save" class="cta" href="#log-section">save</button>
   </div>
   </div>`;
