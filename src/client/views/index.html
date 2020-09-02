@@ -5,57 +5,85 @@
     4. an empty log section where to dynamically display saved trips
     5. and a footer -->
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:,">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
     <title>Travel Journal</title>
-    <link rel="stylesheet" href="../styles/all.scss">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f49ef79a52.js" crossorigin="anonymous"></script>
-
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/all.scss" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f49ef79a52.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <nav class="navbar__menu">
-              <p><a href="#search-section" class="menu__link" id="company-brand-nav"><i class="fas fa-globe-europe"></i></i> Travel Journal</a></p>
-            <p><a href="#log-section" class="menu__link" id="trip-log-nav">Logged Trips</a></p>
-        </nav>
+      <nav class="navbar__menu">
+        <p>
+          <a href="#search-section" class="menu__link" id="company-brand-nav"
+            ><i class="fas fa-map-pin"></i> Travel Journal</a
+          >
+        </p>
+        <p>
+          <a href="#log-section" class="menu__link" id="trip-log-nav">My Log</a>
+        </p>
+      </nav>
     </header>
 
     <main>
+      <section id="search-section">
+        <div class="hero-quote">
+          <h1><span>Life is a journey.</span></h1>
+          <h2><span> Log it.</span></h2>
+        </div>
 
-        <section id="search-section">
-            <div class="hero-quote"><h1><span>Life is a journey.</span></h1>
-                <h2><span> Log it.</span></h2>
-            </div>
+        <form class="trip-details" onsubmit="return Client.handleFind(event)">
+          <div class="inputs">
+            <input
+              type="text"
+              name="destination"
+              id="destination"
+              class="dark"
+              placeholder=" Type a city"
+              autofocus
+              required
+            />
+            <input type="date" name="date" id="date" class="dark" />
+          </div>
 
-            <form class="trip-details" onsubmit="return Client.handleFind(event)">
-                <input type="text" name="destination" id="destination" class="dark" placeholder="destination city" required>
-                <input type="date" name="date" id="date" class="dark">
-                <input type="submit" class="cta" value="find" required>
-            </form>
-        </section>
+          <button type="submit" class="cta">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </section>
 
-        <section id="search-results"> 
-        </section>
+      <section id="search-results"></section>
 
-        <section id="log-section">
-            <div id="saved-trips">
-            </div>
-        </section>
-
-
+      <section id="log-section">
+        <div id="saved-trips"></div>
+      </section>
     </main>
 
     <footer id="footer">
-        <div class="social">
-            <a href="https://github.com/filippomassarelli/udacity-fend-project-4"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/smilemeup/"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <p>Filippo Massarelli &copy Udacity 2020</p>
+      <div class="social">
+        <a href="https://github.com/filippomassarelli/udacity-fend-project-4"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/smilemeup/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <p>Filippo Massarelli &copy Udacity 2020</p>
     </footer>
     <!-- <script>
         // Check that service workers are supported
@@ -66,5 +94,5 @@
             });
         }
     </script> -->
-</body>
+  </body>
 </html>

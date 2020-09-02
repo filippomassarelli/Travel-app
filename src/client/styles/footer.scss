@@ -1,7 +1,4 @@
-$font-stack: "Roboto Mono", monospace;
-
 footer {
-  font-family: $font-stack;
   font-weight: 300;
   font-size: 1rem;
   background-color: mediumaquamarine;
@@ -16,5 +13,8 @@ footer {
     color: white;
     font-size: 1.5rem;
     width: 2rem;
+    &:hover {
+      color: mediumpurple;
+    }
   }
 }
