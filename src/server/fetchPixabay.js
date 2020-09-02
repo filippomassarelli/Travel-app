@@ -1,7 +1,5 @@
-// const axios = require("axios");
 const fetch = require("node-fetch");
 const dotenv = require("dotenv");
-const { url } = require("inspector");
 dotenv.config();
 
 const key = process.env.PIXABAY_KEY;

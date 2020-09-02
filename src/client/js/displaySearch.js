@@ -11,7 +11,7 @@ function displaySearch(data) {
   const timeText = Client.timeDiff(data.departureDate);
 
   let resultsHTML;
-  //   if (!data.error) {
+
   const weatherImgSrc = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
   resultsHTML = `<div class="search-card">                 
   <img src="${data.cityImgSrc}">
@@ -24,13 +24,6 @@ function displaySearch(data) {
   <button id="save" class="cta" href="#log-section">save</button>
   </div>
   </div>`;
-  //   } else {
-  //     resultsHTML = `
-  //                   <div>
-  //                   <h1>Sorry!</h1>
-  //                   <p>${data.error}</p>
-  //                   </div>`;
-  //   }
 
   //add resultsHTML to DOM
   console.log("updateUI is running");
@@ -39,8 +32,6 @@ function displaySearch(data) {
   document
     .getElementById("save")
     .addEventListener("click", () => Client.handleSave(data));
-
-  //   const handleClick = Client.handleSave(data);
 }
 
 export { displaySearch };
