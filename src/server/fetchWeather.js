@@ -1,7 +1,7 @@
 const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
-// const regeneratorRuntime = require("regenerator-runtime");
+const regeneratorRuntime = require("regenerator-runtime");
 
 const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
 const units = "&units=metric";

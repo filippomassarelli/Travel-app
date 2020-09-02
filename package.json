@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
-    "start": "node src/server/index.js",
+    "test": "jest --coverage --detectOpenHandles",
+    "start": "node src/server/server.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
@@ -25,6 +25,7 @@
     "node-fetch": "^2.6.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "regenerator-runtime": "^0.13.7",
+    "supertest": "^4.0.2",
     "terser-webpack-plugin": "^4.1.0",
     "webpack-cli": "^3.3.5"
   },

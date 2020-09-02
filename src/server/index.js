@@ -10,6 +10,8 @@ const bodyParser = require("body-parser");
 const fetchWeather = require("./fetchWeather");
 const fetchPixabay = require("./fetchPixabay");
 
+const regeneratorRuntime = require("regenerator-runtime");
+
 // Local database
 let logId = 0;
 let searchLog = [];
@@ -33,12 +35,6 @@ app.use(express.static("dist"));
 
 // setup Cors for cross origin allowance
 app.use(cors());
-
-// Spin server
-const port = 5005;
-app.listen(process.env.PORT || port, () => {
-  console.log(`Travel app running on port ${port}!`);
-});
 
 // ======================
 
@@ -89,3 +85,5 @@ app.post("/delete", (req, res) => {
 
   res.status(200).send(saveLog);
 });
+
+module.exports = app;
