@@ -1,25 +1,57 @@
 const axios = require("axios");
+const fetch = require("node-fetch");
 const dotenv = require("dotenv");
 dotenv.config();
 const regeneratorRuntime = require("regenerator-runtime");
 
-const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
-const units = "&units=metric";
-const weatherKey = "&appid=" + process.env.WEATHER_KEY;
+const geoBaseUrl = "http://api.geonames.org/searchJSON?axRows=1&type=jsonm&q=";
+const geoUser = "&username=" + process.env.GEONAMES_USER;
 
-const fetchWeather = async (city) => {
-  const res = await axios(baseUrl + city + weatherKey + units);
+const weatherBaseUrl = "https://api.weatherbit.io/v2.0/history/daily?";
+const weatherKey = process.env.WEATHERBIT_KEY;
+
+async function geoApi(city) {
+  const geoReq = await fetch(geoBaseUrl + city + geoUser);
+  const geoRes = await geoReq.json();
+  const cityId = geoRes.geonames[0].geonameId;
+  return cityId;
+}
+
+async function weatherApi(cityId) {
+  const weatherReq = await fetch(
+    `${weatherBaseUrl}key=${weatherKey}&city_id=${cityId}&start_date=2020-08-30&end_date=2020-08-31`
+  );
   try {
+    const weatherRes = await weatherReq.json();
     const data = {
-      city: res.data.name,
-      temp: Math.round(res.data.main.temp),
-      icon: res.data.weather[0].icon,
-      description: res.data.weather[0].description,
+      city: weatherRes.city_name,
+      temp: Math.round(weatherRes.data[0].temp),
     };
     return data;
-  } catch (e) {
-    console.log("Error", e);
+  } catch (error) {
+    console.log(error);
   }
+}
+
+const fetchWeather = async (city) => {
+  const mydata = await geoApi(city).then(async (cityId) => {
+    const weatherReq = await fetch(
+      `${weatherBaseUrl}key=${weatherKey}&city_id=${cityId}&start_date=2020-08-30&end_date=2020-08-31`
+    );
+    try {
+      const weatherRes = await weatherReq.json();
+
+      const data = {
+        city: weatherRes.city_name,
+        temp: Math.round(weatherRes.data[0].temp),
+      };
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  return mydata;
 };
 
 module.exports = fetchWeather;
