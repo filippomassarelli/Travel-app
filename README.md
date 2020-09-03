@@ -28,14 +28,16 @@ This project was aimed at practicing:
 
 In order to run this application locally make sure you signup to:
 
-- [OpenWeather](https://openweathermap.org/api)
+- [Geonames](https://www.geonames.org/)
+- [Weatherbit](https://www.weatherbit.io/api)
 - [Pixabay](https://pixabay.com/api/docs/)
 
 You will need to create a new `.env` file in the root of your project and store your API keys like so:
 
 ```
-WEATHER_KEY = ********************
-PIXABAY_KEY = ************************
+WEATHERBIT_KEY = ********************
+PIXABAY_KEY = ***********************
+GEONAMES_USER = *********************
 ```
 
 ## From Terminal
@@ -53,3 +55,8 @@ PIXABAY_KEY = ************************
 ## Acknowledgments
 
 This app is the final project for [Udacity](https://www.udacity.com/) **Front End Web Developer Capstone Project**
+
+## Extras
+
+- Allow the user to remove the trip
+- Allow the user to add additional trips (this may take some heavy reworking, but is worth the challenge)
