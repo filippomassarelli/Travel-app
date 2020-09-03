@@ -20,8 +20,8 @@ function displayLog(data) {
 
     const resultsHTML = `
                         <img src=${trip.cityImgSrc}/>
-                        <h3>${trip.city} - ${timeText}</h3>
-                        <p>${trip.temp}°C with ${trip.description}</p>
+                        <h3>${trip.city}</h3>
+                        <p>${trip.temp}°C  - ${timeText}</p>
                         `;
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "delete";
@@ -32,7 +32,9 @@ function displayLog(data) {
 
     deleteButton.addEventListener("click", () => {
       console.log(btnValue);
-      Client.postData("/delete", btnValue).then((newLog) => displayLog(newLog));
+      Client.postData("http://localhost:5005/delete", btnValue).then((newLog) =>
+        displayLog(newLog)
+      );
     });
 
     card.insertAdjacentHTML("beforeend", resultsHTML);

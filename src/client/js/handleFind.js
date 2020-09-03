@@ -12,7 +12,7 @@ const handleFind = (event) => {
   const userInput = { destinationCity, departureDate };
 
   //Send post request to server and use response to updateUI
-  Client.postData("/find", userInput).then((data) => {
+  Client.postData("http://localhost:5005/find", userInput).then((data) => {
     Client.displaySearch(data);
   });
 
